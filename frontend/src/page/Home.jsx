@@ -11,19 +11,23 @@ const Home = () => {
       const response = await axios.get("http://localhost:4000/api/workouts");
       const data = response.data;
       if (response.status === 200) {
-          setWorkout(data);
-        }
-        
+        setWorkout(data);
+      }
     };
     fetchData();
   }, []);
-  
+
   return (
-    <div>
+    <div className="container">
       <div className="workouts">
-        {workout && workout.map((workout) => <WorkoutShow key={workout._id} workout={workout}/>)}       
+        {workout &&
+          workout.map((workout) => (
+            <WorkoutShow key={workout._id} workout={workout} />
+          ))}
       </div>
-    <WorkoutForm/>
+      <div className="workout-form">
+        <WorkoutForm />
+      </div>
     </div>
   );
 };

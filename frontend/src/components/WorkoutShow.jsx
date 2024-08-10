@@ -1,17 +1,20 @@
-import React from 'react'
+import React from "react";
 
-const WorkoutShow = ({workout}) => {
+const WorkoutShow = ({ workout }) => {
   return (
-    <div className='workout-details'>
-        <span>Title:</span>
-        {workout.title} <br />
-        <span>Reps:</span>
-        {workout.reps} <br />
-        <span>Load:</span>
-        {workout.load} <br /><br />
-
+    <div className="workout-details">
+      <div>{workout.title} </div>
+      <br />
+      <span className="heading">Reps:</span>
+      <span> {workout.reps} </span>
+      <br />
+      <span className="heading">Load (kg): </span>
+      <span>{workout.load}</span>
+      <br />
+      <br />
+      <span>{workout.createdAt}</span>
     </div>
-  )
-}
+  );
+};
 
-export default WorkoutShow
+export default WorkoutShow;
