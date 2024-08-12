@@ -16,7 +16,6 @@ const UserSchema = new mongoose.Schema({
 });
 
 //static signup method 
-
 UserSchema.statics.signup = async function (email, password) {
   //validator
   if (!email || !password) {
@@ -41,6 +40,26 @@ UserSchema.statics.signup = async function (email, password) {
   const user = await this.create({ email, password: hash });
   return user;
 };
+
+//Static Login Method 
+UserSchema.statics.login = async function (email, password){
+
+    if (!email || !password) {
+        throw Error("All fields must be field");
+      }
+      if (!validator.isEmail(email)) {
+        throw Error("Enter valid email");
+      }
+    const user = await this.findOne({ email });
+    if(!user){
+        throw Error('Enter valid email or password')
+    }
+    const match = await bcrypt.compare(password,user.password)
+    if(!match){
+        throw Error('Enter valid email or password')
+    }
+    return user
+}
 
 const UserModel = mongoose.model("User", UserSchema);
 
