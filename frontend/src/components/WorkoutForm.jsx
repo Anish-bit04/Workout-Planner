@@ -52,7 +52,8 @@ const WorkoutForm = () => {
         />{" "}
         <br />
         <br />
-        <button>Add Workout</button>
+        <div className="addBtn"><button>Add Workout</button></div>
+        
       </form>
     </div>
   );
