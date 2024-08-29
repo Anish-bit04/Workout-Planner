@@ -8,7 +8,7 @@ const WorkoutForm = () => {
   async function handleSubmit(e) {
     e.preventDefault();
     const workout = { title, load, reps };
-    const response = await fetch("http://localhost:4000/api/workouts", {
+    const response = await fetch("https://workout-planner-backend-e9o3.onrender.com/api/workouts", {
       method: "POST",
       headers: {
         "Content-Type": "application/json",

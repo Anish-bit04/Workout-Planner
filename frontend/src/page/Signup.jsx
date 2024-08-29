@@ -7,7 +7,7 @@ const Signup = () => {
     const handleSubmit=async (e)=>{
       e.preventDefault()
       const user = {email,password}
-      const response = await fetch('http://localhost:4000/api/users/signup',{
+      const response = await fetch('https://workout-planner-backend-e9o3.onrender.com/api/users/signup',{
         method:'POST',
         headers:{'Content-Type': 'application/json' },
         body:JSON.stringify({user})

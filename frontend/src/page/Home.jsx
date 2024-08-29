@@ -8,7 +8,7 @@ const Home = () => {
 
   useEffect(() => {
     const fetchData = async () => {
-      const response = await axios.get("http://localhost:4000/api/workouts");
+      const response = await axios.get("https://workout-planner-backend-e9o3.onrender.com/api/workouts");
       const data = response.data;
       if (response.status === 200) {
         setWorkout(data);
