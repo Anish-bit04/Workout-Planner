@@ -13,7 +13,7 @@ const getWorkoutById = async(req,res)=>{
     const {id} = req.params;
 
     if(!mongoose.Types.ObjectId.isValid(id)){
-        res.status(404).json({error:'No such workout woth given id'})
+        res.status(400).json({error:'No such workout woth given id'})
     }
 
     const workout = await WorkoutModel.findById({_id:id})
